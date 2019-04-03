@@ -1,0 +1,43 @@
+node {
+   stage('checkout'){
+       
+       git credentialsId: '7c6c6d7f-d238-4282-86be-35f58ce2e2de', url: 'https://github.com/amitprince/jenkins-pipeline.git'
+   }
+   stage('build'){
+       
+       echo 'maven_build'
+   
+   }
+   
+   stage('approval'){
+       
+       input "this build do you want dev-env"
+   }
+   stage('dev-env'){
+       
+       echo 'deploy into dev-env'
+   }
+    stage('approval'){
+       
+       input "this build do you want test-env"
+   }
+   stage('test-env'){
+       
+       echo 'deploy into test-env'
+   }
+    stage('approval'){
+       
+       input "this build do you want production-env"
+   }
+   stage('production'){
+       
+       echo 'deploy into prod-evn'
+   }
+    stage('build is seccess'){
+       
+       echo 'deploy is done '
+   }
+   stage('build is over'){
+       
+       echo 'deploy is over '
+   }}
